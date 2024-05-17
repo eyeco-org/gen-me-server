@@ -1,4 +1,4 @@
-package com.eyeco.genmeserver.service;
+package com.eyeco.genmeserver.prompt.service;
 
 import com.eyeco.genmeserver.common.config.ChatGPTConfig;
 import com.eyeco.genmeserver.dto.*;
