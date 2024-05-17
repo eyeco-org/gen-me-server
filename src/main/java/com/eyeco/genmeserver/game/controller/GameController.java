@@ -16,12 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class GameController {
     private final SetUpQuestionService setUpQuestionService;
 
-    private String message;
-
     @PostMapping()
     public ResponseEntity<ResponseDto<String>> inputData(InputDataDto inputDataDto){
-        boolean flag = setUpQuestionService.existsByGameId(inputDataDto);
-        ResponseDto<String> responseDto = ResponseDto.success();
+        String message = setUpQuestionService.inputData(inputDataDto);
+        ResponseDto<String> responseDto = ResponseDto.success(message);
         return ResponseEntity.status(HttpStatus.OK).body(responseDto);
     }
 
