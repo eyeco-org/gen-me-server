@@ -17,6 +17,7 @@ public class SetUpAnswer {
 
     private String nickname;
 
+    @Column(length = 65535)
     private String answerContent;
 
     protected SetUpAnswer() {
