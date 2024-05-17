@@ -1,16 +1,14 @@
-package com.eyeco.genmeserver.controller;
+package com.eyeco.genmeserver.prompt.controller;
 
-import com.eyeco.genmeserver.dto.ChatCompletionDto;
 import com.eyeco.genmeserver.dto.CompletionDto;
 import com.eyeco.genmeserver.dto.PromptingRequest;
 import com.eyeco.genmeserver.dto.PromptingResponse;
-import com.eyeco.genmeserver.service.ChatGPTService;
+import com.eyeco.genmeserver.prompt.service.ChatGPTService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
