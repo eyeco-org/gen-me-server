@@ -2,6 +2,8 @@ package com.eyeco.genmeserver.controller;
 
 import com.eyeco.genmeserver.dto.ChatCompletionDto;
 import com.eyeco.genmeserver.dto.CompletionDto;
+import com.eyeco.genmeserver.dto.PromptingRequest;
+import com.eyeco.genmeserver.dto.PromptingResponse;
 import com.eyeco.genmeserver.service.ChatGPTService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -43,9 +45,9 @@ public class ChatGPTController {
      * @return
      */
     @PostMapping("/prompt")
-    public ResponseEntity<Map<String, Object>> selectPrompt(@RequestBody ChatCompletionDto chatCompletionDto) {
-        log.debug("param :: " + chatCompletionDto.toString());
-        Map<String, Object> result = chatGPTService.prompt(chatCompletionDto);
+    public ResponseEntity<PromptingResponse> selectPrompt(@RequestBody PromptingRequest request) {
+//        log.debug("param :: " + chatCompletionDto.toString());
+        PromptingResponse result = chatGPTService.prompt(request);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 }
