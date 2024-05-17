@@ -2,8 +2,6 @@ package com.eyeco.genmeserver.game.controller;
 
 import com.eyeco.genmeserver.dto.InputDataDto;
 import com.eyeco.genmeserver.dto.ResponseDto;
-import com.eyeco.genmeserver.game.repository.GameRepository;
-import com.eyeco.genmeserver.setup.repository.SetUpQuestionRepository;
 import com.eyeco.genmeserver.setup.service.SetUpQuestionService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -27,16 +27,9 @@ import java.util.Map;
 @Service
 @RequiredArgsConstructor
 public class ChatGPTService {
-
     private final ChatGPTConfig chatGPTConfig;
     private final SetUpAnswerRepository setUpAnswerRepository;
 
-
-    @Value("${openai.url.model}")
-    private String modelUrl;
-
-    @Value("${openai.url.model-list}")
-    private String modelListUrl;
 
     @Value("${openai.url.prompt}")
     private String promptUrl;
@@ -68,11 +61,10 @@ public class ChatGPTService {
     }
 
 
-
     /**
      * 신규 모델에 대한 프롬프트
      *
-     * @param chatCompletionDto {}
+     * @param request {}
      * @return chatCompletionDto
      */
 
@@ -94,10 +86,6 @@ public class ChatGPTService {
 
         ChatCompletionDto test = new ChatCompletionDto(questions);
 
-
-
-        Map<String, Object> resultMap = new HashMap<>();
-
         HttpHeaders headers = chatGPTConfig.httpHeaders();
 
         HttpEntity<ChatCompletionDto> requestEntity = new HttpEntity<>(test, headers);
@@ -106,11 +94,7 @@ public class ChatGPTService {
                 .exchange(promptUrl, HttpMethod.POST, requestEntity, String.class);
         String content = "";
         try {
-
-            ObjectMapper om = new ObjectMapper();
-
             JsonNode rootNode = objectMapper.readTree(response.getBody());
-
             content = rootNode.path("choices").get(0).path("message").path("content").asText();
         } catch (JsonProcessingException e) {
             log.debug("JsonMappingException :: " + e.getMessage());

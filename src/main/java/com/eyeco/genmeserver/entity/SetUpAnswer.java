@@ -1,11 +1,14 @@
 package com.eyeco.genmeserver.entity;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @Entity
 public class SetUpAnswer {
 
@@ -20,9 +23,6 @@ public class SetUpAnswer {
     @Column(length = 65535)
     private String answerContent;
 
-    protected SetUpAnswer() {
-
-    }
 
     public SetUpAnswer(int questionId, String nickname, String answerContent) {
         this.questionId = questionId;

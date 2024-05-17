@@ -39,8 +39,8 @@ public class ChatGPTController {
     /**
      * [API] 최신 ChatGPT 프롬프트 명령어를 수행합니다. : gpt-4, gpt-4 turbo, gpt-3.5-turbo
      *
-     * @param chatCompletionDto
-     * @return
+     * @param request
+     * @return 
      */
     @PostMapping("/prompt")
     public ResponseEntity<PromptingResponse> selectPrompt(@RequestBody PromptingRequest request) {
