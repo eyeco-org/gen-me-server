@@ -22,6 +22,6 @@ public class LoginService {
 
     public boolean checkUser(StartDto startDto){
         User user = StartDto.toUser(startDto);
-        return loginRepository.findByNickname(user).isEmpty();
+        return loginRepository.existsByNickname(user.getNickname());
     }
 }
