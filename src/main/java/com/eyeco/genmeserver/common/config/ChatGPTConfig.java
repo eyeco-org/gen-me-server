@@ -13,7 +13,6 @@ public class ChatGPTConfig {
     private String secretKey;
 
 
-    @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
@@ -25,5 +24,6 @@ public class ChatGPTConfig {
         headers.setContentType(MediaType.APPLICATION_JSON);
         return headers;
     }
+
 
 }
