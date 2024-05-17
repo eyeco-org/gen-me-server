@@ -12,8 +12,8 @@ public class ChatRequestDto {
     private String content;
 
     @Builder
-    public ChatRequestDto(String role, String content) {
-        this.role = role;
+    public ChatRequestDto(String content) {
+        this.role = "user";
         this.content = content;
     }
 }
