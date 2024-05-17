@@ -25,7 +25,7 @@ public class LoginController {
 
     @PostMapping()
     public ResponseEntity<ResponseDto<String>> startGame(@RequestBody StartDto startDto){
-        if(!loginService.checkUser(startDto)) return ResponseEntity.status(HttpStatus.OK).body(ResponseDto.success("닉네임이 중복됩니다."));
+        if(loginService.checkUser(startDto)) return ResponseEntity.status(HttpStatus.OK).body(ResponseDto.success("닉네임이 중복됩니다."));
         loginService.loginUser(startDto);
         if(startDto.getMaxCount() != 0){
             return ResponseEntity.status(HttpStatus.OK).body(ResponseDto.success(gameService.createGame(startDto)));
