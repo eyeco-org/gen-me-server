@@ -6,33 +6,18 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@Entity
 public class SetUpQuestion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int setUpQuestionId;
 
-    @JoinColumn(name = "gameId")
-    private Game game;
+    private int gameId;
 
-    @JoinColumn(name = "nickname")
-    @ManyToOne
-    private User user;
+    private String nickname;
 
     private int setUpQuestionNum;
 
     private String questionContent;
-
-
-    protected SetUpQuestion() {
-
-    }
-
-    public SetUpQuestion(Game game, User user, int questionNum, String content) {
-        this.game = game;
-        this.user = user;
-        this.setUpQuestionNum = questionNum;
-        this.questionContent = content;
-    }
-
 
 }
