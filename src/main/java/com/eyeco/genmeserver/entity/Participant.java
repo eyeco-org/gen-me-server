@@ -1,31 +1,27 @@
 package com.eyeco.genmeserver.entity;
 
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import lombok.Getter;
-import lombok.Setter;
+import jakarta.persistence.*;
+import lombok.*;
 
 @Getter
 @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
+@Builder
+@Entity
 public class Participant {
     @Id
-    @JoinColumn(name = "nickname")
-    private User user;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int participantId;
 
-    @JoinColumn(name = "gameId")
-    private Game game;
+    private String nickname;
 
-    private Integer score;
+    private int gameId;
 
+    private int score;
 
-    protected Participant() {
+    private int isReady;
 
-    }
-
-    public Participant(User user, Game game, Integer score) {
-        this.user = user;
-        this.game = game;
-        this.score = score;
-    }
+    private int image;
 
 }

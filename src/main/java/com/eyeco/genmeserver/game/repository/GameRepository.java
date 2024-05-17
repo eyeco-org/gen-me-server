@@ -1,4 +1,7 @@
 package com.eyeco.genmeserver.game.repository;
 
-public class GameRepository {
+import com.eyeco.genmeserver.entity.Game;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface GameRepository extends JpaRepository<Game, Long> {
 }
