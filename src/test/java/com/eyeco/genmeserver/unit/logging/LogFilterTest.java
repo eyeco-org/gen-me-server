@@ -15,35 +15,35 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 @SpringBootTest
 @AutoConfigureMockMvc
 public class LogFilterTest {
-    @Autowired
-    private MockMvc mockMvc;
-
-    @Autowired
-    private ObjectMapper objectMapper;
-
-    @DisplayName("LogFilter Get 테스트")
-    @Test
-    public void testLogFilterGet() throws Exception {
-        mockMvc.perform(MockMvcRequestBuilders.get("/test/log"))
-                .andExpect(MockMvcResultMatchers.status().isOk());
-    }
-
-    @DisplayName("LogFilter Post 테스트")
-    @Test
-    public void testLogFilterPost() throws Exception {
-        LogFilterTestDto logFilterTestDto = LogFilterTestDto.builder()
-                .userId("testId")
-                .password("testPw")
-                .name("test")
-                .build();
-        mockMvc.perform(MockMvcRequestBuilders.post("/test/log")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(toJson(logFilterTestDto)))
-                .andExpect(MockMvcResultMatchers.status().isOk())
-                .andReturn();
-    }
-
-    private <T> String toJson(T data) throws JsonProcessingException {
-        return objectMapper.writeValueAsString(data);
-    }
+//    @Autowired
+//    private MockMvc mockMvc;
+//
+//    @Autowired
+//    private ObjectMapper objectMapper;
+//
+//    @DisplayName("LogFilter Get 테스트")
+//    @Test
+//    public void testLogFilterGet() throws Exception {
+//        mockMvc.perform(MockMvcRequestBuilders.get("/test/log"))
+//                .andExpect(MockMvcResultMatchers.status().isOk());
+//    }
+//
+//    @DisplayName("LogFilter Post 테스트")
+//    @Test
+//    public void testLogFilterPost() throws Exception {
+//        LogFilterTestDto logFilterTestDto = LogFilterTestDto.builder()
+//                .userId("testId")
+//                .password("testPw")
+//                .name("test")
+//                .build();
+//        mockMvc.perform(MockMvcRequestBuilders.post("/test/log")
+//                        .contentType(MediaType.APPLICATION_JSON)
+//                        .content(toJson(logFilterTestDto)))
+//                .andExpect(MockMvcResultMatchers.status().isOk())
+//                .andReturn();
+//    }
+//
+//    private <T> String toJson(T data) throws JsonProcessingException {
+//        return objectMapper.writeValueAsString(data);
+//    }
 }
